@@ -7,17 +7,19 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --write ."
+    "lint:fix": "eslint src/**/*.{ts,tsx} --fix",
+    "format": "prettier --write .",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@ant-design/icons": "^5.2.6",
     "antd": "^5.13.2",
+    "autoprefixer": "^10.4.17",
     "next": "14.1.0",
+    "postcss": "^8.4.33",
     "react": "^18",
     "react-dom": "^18",
-    "tailwindcss": "^3.4.1",
-    "autoprefixer": "^10.4.17",
-    "postcss": "^8.4.33"
+    "tailwindcss": "^3.4.1"
   },
   "devDependencies": {
     "@types/node": "^20",
@@ -35,7 +37,19 @@
     "eslint-plugin-sort-keys-fix": "^1.1.2",
     "eslint-plugin-typescript-sort-keys": "^3.1.0",
     "eslint-plugin-unused-imports": "^3.0.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
     "prettier": "^3.2.4",
     "typescript": "^5"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "yarn lint",
+      "yarn format",
+      "yarn lint:fix"
+    ]
+  },
+  "resolutions": {
+    "strip-ansi": "6.0.1"
   }
 }
