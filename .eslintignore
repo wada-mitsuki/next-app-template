@@ -1,5 +1,5 @@
 **/node_modules/*
 tailwind.config.js
-index.tsx
+index.ts
 next.config.mjs
 postcss.config.js
